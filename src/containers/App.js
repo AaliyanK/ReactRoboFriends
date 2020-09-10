@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import CardList from '../components/CardList';
 import Searchbox from '../components/Searchbox';
 // import { robots } from './robots';
-import Scroll from '../components/Scroll'
+import Scroll from '../components/Scroll';
 import './App.css';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 // Mounting - when refresh is hit, App will get mounted to index.js, lifecycle hooks are hit (constructor)
 // Updating - whenever a component is changed, lifecycle hook - render/componentDidMount is hit
@@ -62,9 +63,11 @@ class App extends React.Component {
                     <Searchbox searchChange={this.onSearchChange}/>
                     {/* Scroll is parent, renders its children */}
                     <Scroll>
-                        {/* Cardlist reads props and renders - props are constant*/}
-                        {/* Take it from constructor */}
-                        <CardList robots = { filteredRobots }/>
+                        <ErrorBoundary>
+                            {/* Cardlist reads props and renders - props are constant*/}
+                            {/* Take it from constructor */}
+                            <CardList robots = { filteredRobots }/>
+                        </ErrorBoundary>
                     </Scroll>
                 </div>);}
     }
