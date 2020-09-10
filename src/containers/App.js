@@ -27,7 +27,7 @@ class App extends React.Component {
 
     componentDidMount() {
         // As soon as page is hit, this will happen
-        fetch('http://jsonplaceholder.typicode.com/users')
+        fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => {
             return response.json();
         })
