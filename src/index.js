@@ -1,11 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+// Describe state of app
+import { Provider, connect } from 'react-redux';
+import { createStore } from 'redux'
+
 import './index.css';
 // CARD DOES NOT NEED destructuring cuz default export
 // import Card from './Card';
 import App from './containers/App.js';
 import * as serviceWorker from './serviceWorker';
 import 'tachyons'; 
+
+// const store = createStore(rootReducer)
 
 // Create own component: Hello
 ReactDOM.render(
